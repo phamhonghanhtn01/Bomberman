@@ -5,15 +5,18 @@ namespace Actors
     public interface IHealth
     {
         event Action<IHealth> OnValueChanged;
-        bool IsInitialized { set; get; }
-        float CurrentHealth { set; get; }
-        float MaxHealth { set; get; }
-        float MinHealth { set; get; }
-        bool Invincible { set; get; }
+        bool IsInitialized { get; }
+        float CurrentHealth { get; }
+        float MaxHealth { get; }
+        float MinHealth { get; }
+        bool Invincible { get; }
         float HealthPercentage { get; }
-        void Initialize();
+        void Initialize(float startingHealth);
         void Reset();
         void Damage(float damage);
         void Healing(float amount);
+        void SetInvincible(bool invincible);
+        void SetMaxHealth(float maxHealth);
+        void SetMinHealth(float minHealth);
     }
 }

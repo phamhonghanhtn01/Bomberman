@@ -1,3 +1,4 @@
+using System;
 using StateMachines;
 
 namespace Actors
@@ -11,5 +12,12 @@ namespace Actors
         public IStatusEngine StatusEngine { private set; get; }
         public IAbilityEngine AbilityEngine { private set; get; }
         public IGraphic GraphicEngine { private set; get; }
+
+
+        protected virtual void Awake()
+        {
+            Health = GetComponent<IHealth>();
+            Animator = GetComponent<IAnimator>();
+        }
     }
 }

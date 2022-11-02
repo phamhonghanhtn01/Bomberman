@@ -11,7 +11,7 @@ namespace Actors
         bool Active { set; get; }
         bool Lock { set; get; }
 
-        void Initialize(Actor actor);
+        void Initialize(Actor actor); 
         void Tick();
         void SubscribeControl(ControlCode controlCode, Action action);
         void UnsubscribeControl(ControlCode controlCode, Action action);

@@ -1,6 +1,6 @@
 namespace Actors
 {
-    public interface IAbilityEngine
+    public interface IAbilityEngine 
     {
     }
 }

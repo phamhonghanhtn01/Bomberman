@@ -1,0 +1,23 @@
+{
+  "data": {
+    "ItemBoomSize": {
+      "UIPath": "Items/item_bombsize",
+      "SizePlus": 1
+    },
+    "ItemBombLimit": {
+      "UIPath": "Items/item_bomb",
+      "LimitPlus": 1
+    },
+    "ItemSpeed": {
+      "UIPath": "Items/item_shoe",
+      "SpeedPlus": 40
+    },
+    "ItemHeart": {
+      "UIPath": "Items/heart_1",
+      "HeartPlus": 1
+    },
+    "ItemKey": {
+      "UIPath": "Items/Key"
+    }
+  }
+}
