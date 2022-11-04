@@ -1,5 +1,5 @@
 using System;
-
+//joystick "nhan input direction" UI xu ly rieng nhận input từ màn hình thiết bị --> input xu ly direction (up move LR), dat bom-->  
 namespace Actors
 {
     public enum ControlCode
