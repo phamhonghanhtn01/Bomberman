@@ -25,6 +25,7 @@ namespace Actors
         {
             health = GetComponent<IHealth>();
             animator = GetComponent<IAnimator>();
+            input = GetComponent<IInput>();
         }
     }
 }

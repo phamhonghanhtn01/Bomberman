@@ -1,4 +1,6 @@
 using System;
+using UnityEngine;
+
 //joystick "nhan input direction" UI xu ly rieng nhận input từ màn hình thiết bị --> input xu ly direction (up move LR), dat bom-->  
 namespace Actors
 {
@@ -16,5 +18,7 @@ namespace Actors
         void SubscribeControl(ControlCode controlCode, Action action);
         void UnsubscribeControl(ControlCode controlCode, Action action);
         void InvokeControl(ControlCode controlCode);
+        void SetDirection(float vertical, float horizontal);
+        void SetDirectionVex(Vector2 newDirection);
     }
 }

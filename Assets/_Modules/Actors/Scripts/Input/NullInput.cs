@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Actors
 {
@@ -14,27 +15,42 @@ namespace Actors
         public bool Lock { get; set; }
         public void Initialize(Actor actor)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Tick()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void SubscribeControl(ControlCode controlCode, Action action)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void UnsubscribeControl(ControlCode controlCode, Action action)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void InvokeControl(ControlCode controlCode)
         {
+            
+        }
+
+        public void SetDirection(float vertical, float horizontal)
+        {
+            
+        }
+
+        public void SetDirectionVex(Vector2 newDirection)
+        {
             throw new NotImplementedException();
+        }
+
+        public void SetDirection(float Direction)
+        {
+            
         }
     }
 }
