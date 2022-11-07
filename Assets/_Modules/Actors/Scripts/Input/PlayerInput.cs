@@ -28,10 +28,10 @@ namespace Actors
 
         private void ChangeDirectionHandler(Vector2 direction)
         {
-            float angle = Vector2.Angle(direction, Vector2.left);
+            float angle = Vector2.Angle(direction, Vector2.right);
             if (angle > 0 )
             {
-                
+                InvokeControl(ControlCode.MoveRight);
             }
             Debug.Log("angle + " + angle );
         }
@@ -53,7 +53,10 @@ namespace Actors
 
         public void InvokeControl(ControlCode controlCode)
         {
-            
+            if (controlCode == ControlCode.MoveRight)
+            {
+                
+            }
         }
         
     }
