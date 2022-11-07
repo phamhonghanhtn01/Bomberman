@@ -29,7 +29,19 @@ namespace Actors
         private void ChangeDirectionHandler(Vector2 direction)
         {
             float angle = Vector2.Angle(direction, Vector2.right);
-            if (angle > 0 )
+            if (angle is > 0 and > 45)
+            {
+                InvokeControl(ControlCode.MoveRight);
+            }
+            if (angle is > 45 and > 90)
+            {
+                InvokeControl(ControlCode.MoveUp);
+            }
+            if (angle is > 0 and > 45)
+            {
+                InvokeControl(ControlCode.MoveRight);
+            }
+            if (angle is > 0 and > 45)
             {
                 InvokeControl(ControlCode.MoveRight);
             }
