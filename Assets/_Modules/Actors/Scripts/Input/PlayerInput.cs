@@ -1,10 +1,12 @@
 using System;
+using InputDevices;
 using UnityEngine;
 
 namespace Actors
 {
-    public class Input : MonoBehaviour, IInput
+    public class PlayerInput : MonoBehaviour, IInput
     {
+        [SerializeField] private MonoInput inputDevice;
         public event Action<IInput> OnInputDirection;
 
         public Rigidbody2D rigidbody;
@@ -15,7 +17,23 @@ namespace Actors
         public bool Lock { get; set; }
         public void Initialize(Actor actor)
         {
-            
+            inputDevice.OnPlayerDirectionChanged += ChangeDirectionHandler;
+            inputDevice.OnPlaceBomb += PlaceBombHandler;
+        }
+
+        private void PlaceBombHandler()
+        {
+            InvokeControl(ControlCode.PlaceBomb);
+        }
+
+        private void ChangeDirectionHandler(Vector2 direction)
+        {
+            float angle = Vector2.Angle(direction, Vector2.left);
+            if (angle > 0 )
+            {
+                
+            }
+            Debug.Log("angle + " + angle );
         }
 
         public void Tick()
@@ -36,24 +54,6 @@ namespace Actors
         public void InvokeControl(ControlCode controlCode)
         {
             
-        }
-        
-        private void FixedUpdate()
-        {
-            Vector2 position = rigidbody.position;
-            Vector2 translation = direction * speed * Time.fixedDeltaTime;
-            Debug.Log("translation   " + translation);
-            rigidbody.MovePosition(position + translation);
-            Debug.Log("MovePosition   " + position + translation);
-        }
-        public void SetDirection(float horizontal, float vertical)
-        {
-              direction = Vector2.right * vertical + Vector2.up * horizontal;
-        }
-        public void SetDirectionVex(Vector2 newDirection)
-        {
-            direction = newDirection;
-
         }
         
     }

@@ -6,6 +6,11 @@ namespace Actors
 {
     public enum ControlCode
     {
+        PlaceBomb = 1,
+        MoveLeft = 2,
+        MoveRight = 3,
+        MoveUp = 4,
+        MoveDown = 5
     }
 
     public interface IInput
@@ -18,7 +23,5 @@ namespace Actors
         void SubscribeControl(ControlCode controlCode, Action action);
         void UnsubscribeControl(ControlCode controlCode, Action action);
         void InvokeControl(ControlCode controlCode);
-        void SetDirection(float vertical, float horizontal);
-        void SetDirectionVex(Vector2 newDirection);
     }
 }
