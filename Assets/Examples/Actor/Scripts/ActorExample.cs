@@ -12,8 +12,7 @@ namespace Examples.Actors
         private void Start()
         {
             actor.Health.SetMaxHealth(15f);
-            float angle = Vector2.Angle(Vector2.down, Vector2.right);
-            Debug.Log("a" + angle);
+            actor.Input.Initialize(actor);
         }
         
     }

@@ -1,5 +1,6 @@
 using System;
 using InputDevices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Actors
@@ -10,8 +11,8 @@ namespace Actors
         public event Action<IInput> OnInputDirection;
 
         public Rigidbody2D rigidbody;
-        private Vector2 direction = Vector2.down;
-        public float speed = 5f;
+        private Vector2 direction ;
+        public float speed ;
         
         public bool Active { get; set; }
         public bool Lock { get; set; }
@@ -29,23 +30,19 @@ namespace Actors
         private void ChangeDirectionHandler(Vector2 direction)
         {
             float angle = Vector2.Angle(direction, Vector2.right);
-            if (angle is > 0 and > 45)
+            Debug.Log("angle + " + angle );
+            if (angle == 0)//angle = 0
             {
                 InvokeControl(ControlCode.MoveRight);
             }
-            if (angle is > 45 and > 90)
+            if (angle == 90)//angle = 90
             {
                 InvokeControl(ControlCode.MoveUp);
-            }
-            if (angle is > 0 and > 45)
+            }if (angle == 180)//angle = 180
             {
-                InvokeControl(ControlCode.MoveRight);
+                InvokeControl(ControlCode.MoveLeft);
             }
-            if (angle is > 0 and > 45)
-            {
-                InvokeControl(ControlCode.MoveRight);
-            }
-            Debug.Log("angle + " + angle );
+            
         }
 
         public void Tick()
@@ -63,11 +60,26 @@ namespace Actors
             
         }
 
+        
+
         public void InvokeControl(ControlCode controlCode)
         {
             if (controlCode == ControlCode.MoveRight)
             {
-                
+                Debug.Log("move r ");
+                rigidbody.velocity = Vector3.right * Time.deltaTime * speed;
+            }if (controlCode == ControlCode.MoveLeft)
+            {                
+                Debug.Log("move l ");
+                rigidbody.velocity = Vector2.left * Time.deltaTime * speed;
+            }if (controlCode == ControlCode.MoveUp)
+            {
+                Debug.Log("move up ");
+                rigidbody.velocity =Vector3.up * Time.deltaTime * speed;
+            }if (controlCode == ControlCode.MoveDown)
+            {
+                Debug.Log("move down");
+                rigidbody.velocity = Vector3.down * Time.deltaTime * speed;
             }
         }
         
